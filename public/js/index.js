@@ -2,15 +2,14 @@ const form = document.getElementById("form");
 
 const addExpense = (e) => {
   e.preventDefault();
-  const Expense = {
+  const expense = {
     name: e.target.name.value,
+    category: e.target.category.value,
     price: e.target.price.value,
+    quantity: e.target.quantity.value,
   };
   axios
-    .post("http://localhost:3000/addExpense", {
-      name: e.target.name.value,
-      price: e.target.price.value,
-    })
+    .post("http://localhost:3000/addExpense", expense)
     .then((reuslt) => {
       console.log(reuslt);
     })
@@ -19,4 +18,9 @@ const addExpense = (e) => {
     });
 };
 
+const totalExpens = () => {
+  console.log("fetched total expense");
+};
 form.addEventListener("submit", addExpense);
+
+document.addEventListener("DOMContentLoaded", totalExpens);

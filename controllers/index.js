@@ -1,17 +1,31 @@
-const Expense = require("../models/index");
+const { Expense } = require("../models/index");
 
 exports.addExpense = (req, res, next) => {
   const expenseDetails = {
     name: req.body.name,
+    category: req.body.category,
     price: req.body.price,
+    quantity: req.body.quantity,
   };
-  console.log(req.body);
-  res.json(expenseDetails);
+  Expense.create(expenseDetails)
+    .then((result) => {
+      console.log("Expense added");
+      res.json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
 
 exports.fetchLastExpense = (req, res, next) => {
-  console.log("fetched last expense");
-  res.json("fetched last expense");
+  Expense.findOne({
+    order: [["id", "DESC"]],
+  })
+    .then((result) => {
+      console.log("Fetched last expense");
+      res.json(result);
+    })
+    .catch((err) => console.error(err));
 };
 
 exports.fetchTotalExpense = (req, res, next) => {

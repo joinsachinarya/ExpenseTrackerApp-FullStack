@@ -1,4 +1,4 @@
-const Expense = require("../models/index");
+const { Expense } = require("../models/index");
 
 exports.fetchAllExpenses = (req, res, next) => {
   console.log("fetched all expense");

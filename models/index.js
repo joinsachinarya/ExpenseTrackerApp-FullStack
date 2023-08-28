@@ -17,11 +17,11 @@ const Expense = sequelize.define("expense", {
     allowNull: false,
   },
   quantity: {
-    type: DataTypes.DOUBLE,
+    type: DataTypes.FLOAT,
     allowNull: false,
   },
   price: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     allowNull: false,
     validate: {
       min: 0,
@@ -29,4 +29,20 @@ const Expense = sequelize.define("expense", {
   },
 });
 
-module.exports = Expense;
+const TotalExpense = sequelize.define("totalExpens", {
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  value: {
+    type: DataTypes.DOUBLE,
+    allowNull: false,
+  },
+});
+
+module.exports = {
+  Expense: Expense,
+  TotalExpense: TotalExpense,
+};
