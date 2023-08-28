@@ -56,32 +56,48 @@ const fetchExpense = (id) => {
 };
 
 const deleteExpense = (id) => {
+  let confirm = window.confirm("Are you sure you want to delete this item?");
+  confirm
+    ? axios
+        .delete(`http://localhost:3000/deleteExpense/${id}`)
+        .then((result) => {
+          window.location.reload();
+        })
+        .catch((err) => console.error(err))
+    : console.log("Item deletion canceled.");
+};
+
+function openEditPrompt(expense) {
+  const updatedValues = {
+    name: prompt(`Name:`, expense.name),
+    category: prompt(`Category:`, expense.category),
+    quantity: prompt(`Quantity:`, expense.quantity),
+    price: prompt(`Price:`, expense.price),
+  };
+  return updatedValues;
+}
+
+const editExpense = (id) => {
   axios
-    .delete(`http://localhost:3000/deleteExpense/${id}`)
+    .get(`http://localhost:3000/fetchExpense/${id}`)
     .then((result) => {
-      console.log(result);
+      const currValues = result.data;
+      const newValues = openEditPrompt(currValues);
+      const updatedValues = {
+        ...currValues,
+        ...newValues,
+      };
+      history.go(0);
+      axios
+        .put(`http://localhost:3000/editExpense/${id}`, updatedValues)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     })
     .catch((err) => console.error(err));
 };
 
-const editExpense = (id) => {
-  const updatedValues = {
-    name: "Goa",
-    category: "trip",
-    quantity: 2,
-    price: 2500,
-  };
-  axios
-    .put(`http://localhost:3000/editExpense/${id}`, updatedValues)
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-};
-
-// editExpense(1);
-// deleteExpense(2);
-// fetchExpense(1);
 document.addEventListener("DOMContentLoaded", fetchAllExpenses);
