@@ -29,6 +29,20 @@ exports.fetchLastExpense = (req, res, next) => {
 };
 
 exports.fetchTotalExpense = (req, res, next) => {
-  console.log("fetched total expense");
-  res.json("fetched total expense");
+  Expense.findAll()
+    .then((result) => {
+      let totalExpenses = 0;
+      let perItemExpense = 0;
+      for (let i in result) {
+        perItemExpense =
+          result[i].dataValues.quantity * result[i].dataValues.price;
+        totalExpenses = totalExpenses + perItemExpense;
+      }
+      const totalPrice = {
+        value: totalExpenses,
+      };
+      console.log(totalPrice);
+      res.json(totalExpenses);
+    })
+    .catch((err) => console.error(err));
 };

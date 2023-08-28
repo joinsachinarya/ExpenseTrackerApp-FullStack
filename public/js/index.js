@@ -18,9 +18,12 @@ const addExpense = (e) => {
     });
 };
 
-const totalExpens = () => {
-  console.log("fetched total expense");
+const totalExpense = () => {
+  axios
+    .get("http://localhost:3000/fetchTotalExpense")
+    .then()
+    .catch((err) => console.error(err));
 };
-form.addEventListener("submit", addExpense);
 
-document.addEventListener("DOMContentLoaded", totalExpens);
+form.addEventListener("submit", addExpense);
+document.addEventListener("DOMContentLoaded", totalExpense);

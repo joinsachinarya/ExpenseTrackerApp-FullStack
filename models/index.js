@@ -29,20 +29,6 @@ const Expense = sequelize.define("expense", {
   },
 });
 
-const TotalExpense = sequelize.define("totalExpens", {
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
-  },
-  value: {
-    type: DataTypes.DOUBLE,
-    allowNull: false,
-  },
-});
-
 module.exports = {
   Expense: Expense,
-  TotalExpense: TotalExpense,
 };
