@@ -1,8 +1,44 @@
+const expensesList = document.getElementById("all-expenses");
+
+function createAndShowExpens(expense) {
+  const li = document.createElement("li");
+  li.id = "expense-item";
+
+  const createSpan = (content) => {
+    const span = document.createElement("span");
+    span.textContent = content;
+    return span;
+  };
+
+  const deleteButton = document.createElement("button");
+  const editButton = document.createElement("button");
+  deleteButton.textContent = `Delete`;
+  editButton.textContent = `Edit`;
+
+  deleteButton.addEventListener("click", () => deleteExpense(expense.id));
+  editButton.addEventListener("click", () => editExpense(expense.id));
+
+  li.appendChild(createSpan(`Name: ${expense.name}`));
+  li.appendChild(createSpan(`Category: ${expense.category}`));
+  li.appendChild(createSpan(`Quantity: ${expense.quantity}`));
+  li.appendChild(createSpan(`Price: ${expense.price}`));
+  li.appendChild(deleteButton);
+  li.appendChild(editButton);
+
+  expensesList.appendChild(li);
+}
+
+function showAllExpenses(expenses) {
+  expenses.forEach((expense) => {
+    createAndShowExpens(expense);
+  });
+}
+
 const fetchAllExpenses = () => {
   axios
     .get("http://localhost:3000/fetchAllExpenses")
     .then((result) => {
-      console.log(result);
+      showAllExpenses(result.data);
     })
     .catch((err) => console.error(err));
 };
@@ -45,4 +81,4 @@ const editExpense = (id) => {
 // editExpense(1);
 // deleteExpense(2);
 // fetchExpense(1);
-// document.addEventListener("DOMContentLoaded", fetchAllExpenses);
+document.addEventListener("DOMContentLoaded", fetchAllExpenses);

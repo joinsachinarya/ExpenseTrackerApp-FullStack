@@ -46,7 +46,7 @@ body{
 
 #expense-added-container{
     width: 50%;
-    margin: 10rem auto;
+    margin: 8rem auto;
 }
 #expense-added-container div{
     display: flex;
