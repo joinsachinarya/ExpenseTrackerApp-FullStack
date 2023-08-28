@@ -21,7 +21,6 @@ exports.fetchExpense = (req, res, next) => {
 };
 exports.deleteExpense = (req, res, next) => {
   const id = req.params.id;
-  console.log("id", id);
   Expense.findByPk(id)
     .then((result) => result.destroy())
     .then((result) => {
@@ -31,6 +30,13 @@ exports.deleteExpense = (req, res, next) => {
     .catch((err) => console.error(err));
 };
 exports.editExpense = (req, res, next) => {
-  console.log("edited  expense");
-  res.json("edited  expense");
+  const id = req.params.id;
+  const updatedValues = req.body;
+  Expense.findByPk(id)
+    .then((result) => {
+      result.update(updatedValues);
+      console.log("Expense updated");
+      res.json(result);
+    })
+    .catch((err) => console.error(err));
 };
