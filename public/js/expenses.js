@@ -1,8 +1,9 @@
-const expensesList = document.getElementById("all-expenses");
+const expensesList = document.getElementById("expenses-list");
 
 function createAndShowExpens(expense) {
   const li = document.createElement("li");
   li.id = "expense-item";
+  li.className = "list-group p-4";
 
   const createSpan = (content) => {
     const span = document.createElement("span");
@@ -12,6 +13,8 @@ function createAndShowExpens(expense) {
 
   const deleteButton = document.createElement("button");
   const editButton = document.createElement("button");
+  deleteButton.className = "btn btn-danger";
+  editButton.className = "btn btn-warning     ";
   deleteButton.textContent = `Delete`;
   editButton.textContent = `Edit`;
 

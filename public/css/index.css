@@ -54,3 +54,17 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+#expenses-list{
+    padding: 2rem;
+}
+
+#expense-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid gray;
+    margin-bottom: 1rem;
+    max-width: 100%;
+
+}
