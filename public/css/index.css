@@ -18,7 +18,18 @@ body{
 #footer{
     position: absolute;
     bottom: 0px;
+    width: 100%;
+    padding: 0.5rem 0;
 }
 #footer a{
     text-decoration: none;
+}
+#main{
+    margin: 2rem;
+}
+#main form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
