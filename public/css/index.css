@@ -3,3 +3,22 @@ body{
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+#header{
+    padding: 1rem 2rem; 
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+#header a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#footer{
+    position: absolute;
+    bottom: 0px;
+}
+#footer a{
+    text-decoration: none;
+}

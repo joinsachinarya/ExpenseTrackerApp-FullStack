@@ -11,51 +11,74 @@
     <link rel="stylesheet" href="/public/css/index.css" />
   </head>
   <body>
-    <header
-      id="header"
-      class="container-fluid bg-primary text-white text-center"
-    >
-      <h2>Expense Tracker App</h2>
+    <header id="header" class="bg-primary">
+      <a href="../html/index.html" class="text-white">Home</a>
+      <h2>
+        <a href="../html/index.html" class="text-white">Expense Tracker App</a>
+      </h2>
+      <a href="../html/expenses.html" class="text-white">All Expenses</a>
     </header>
-    <form id="form">
-      <input
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Name"
-        required
-        autocomplete="off"
-      />
-      <select name="category" id="category" required>
-        <option value="" disabled selected>Select category</option>
-        <option value="shopping">Shopping</option>
-        <option value="trip">Trip</option>
-        <option value="education">Education</option>
-        <option value="food">Food</option>
-        <option value="others">Others</option>
-      </select>
-      <input
-        type="number"
-        name="price"
-        id="price"
-        placeholder="Price"
-        required
-      />
-      <input
-        type="number"
-        name="quantity"
-        id="quantity"
-        placeholder="Quantity"
-        required
-      />
-      <button type="submit">Add Expense</button>
-    </form>
-    <footer>
+
+    <div class="">
+      <form id="form">
+        <div class="">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class=""
+            placeholder="Name"
+            required
+            autocomplete="off"
+          />
+        </div>
+        <div class="">
+          <label for="category">Category</label>
+          <select name="category" id="category" class="" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="shopping">Shopping</option>
+            <option value="trip">Trip</option>
+            <option value="education">Education</option>
+            <option value="food">Food</option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+        <div class="">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            name="price"
+            id="price"
+            class=""
+            placeholder="Price"
+            required
+          />
+        </div>
+        <div class="">
+          <label for="quantity">Quantity</label>
+          <input
+            type="number"
+            name="quantity"
+            id="quantity"
+            class=""
+            placeholder="Quantity"
+            required
+          />
+        </div>
+        <button type="submit" class="">Add Expense</button>
+      </form>
+    </div>
+
+    <footer id="footer" class="">
       <p>
         &copy;
-        <a href="https://github.com/sac6inarya/ExpenseTrackerApp-FullStack.git"
-          >Sachin Arya</a
-        >
+        <button>
+          <a
+            href="https://github.com/sac6inarya/ExpenseTrackerApp-FullStack.git"
+            >Sachin Arya</a
+          >
+        </button>
       </p>
     </footer>
     <script src="/public/js/index.js"></script>
