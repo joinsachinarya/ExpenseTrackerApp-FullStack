@@ -17,14 +17,14 @@ const Expense = sequelize.define("expense", {
     allowNull: false,
   },
   quantity: {
-    type: DataTypes.FLOAT,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   price: {
     type: DataTypes.FLOAT,
     allowNull: false,
     validate: {
-      min: 0,
+      min: 0.1,
     },
   },
 });

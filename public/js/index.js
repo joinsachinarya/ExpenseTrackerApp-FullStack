@@ -3,6 +3,7 @@ const totalExpenseValue = document.getElementById("total-expense-value");
 
 const addExpense = (e) => {
   e.preventDefault();
+
   const expense = {
     name: e.target.name.value,
     category: e.target.category.value,
@@ -11,8 +12,8 @@ const addExpense = (e) => {
   };
   axios
     .post("http://localhost:3000/addExpense", expense)
-    .then((reuslt) => {
-      console.log(reuslt);
+    .then((result) => {
+      console.log(result);
     })
     .catch((err) => {
       console.error(err);

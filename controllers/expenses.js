@@ -6,7 +6,12 @@ exports.fetchAllExpenses = (req, res, next) => {
       console.log("All expenses fetched");
       res.send(result);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ error: "An error occured while fetching the all expenses." });
+    });
 };
 exports.fetchExpense = (req, res, next) => {
   const id = req.params.id;
@@ -16,7 +21,10 @@ exports.fetchExpense = (req, res, next) => {
       res.json(result);
     })
     .catch((err) => {
-      console.error();
+      console.error(err);
+      res
+        .status(500)
+        .json({ error: "An error occured while fetching the expense." });
     });
 };
 exports.deleteExpense = (req, res, next) => {
@@ -27,7 +35,12 @@ exports.deleteExpense = (req, res, next) => {
       console.log("Expense deleted");
       res.json(result);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ error: "An error occured while deleting the expense." });
+    });
 };
 exports.editExpense = (req, res, next) => {
   const id = req.params.id;
@@ -38,5 +51,10 @@ exports.editExpense = (req, res, next) => {
       console.log("Expense updated");
       res.json(result);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ error: "An error occured while editing the expense." });
+    });
 };

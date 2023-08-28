@@ -3,8 +3,7 @@ const searchBox = document.getElementById("search-by-name-input-box");
 
 function createAndShowExpens(expense) {
   const li = document.createElement("li");
-  li.id = "expense-item";
-  li.className = "list-group p-4";
+  li.className = "expense-item list-group p-4";
 
   const createSpan = (content) => {
     const span = document.createElement("span");
@@ -15,7 +14,7 @@ function createAndShowExpens(expense) {
   const deleteButton = document.createElement("button");
   const editButton = document.createElement("button");
   deleteButton.className = "btn btn-danger";
-  editButton.className = "btn btn-warning     ";
+  editButton.className = "btn btn-warning";
   deleteButton.textContent = `Delete`;
   editButton.textContent = `Edit`;
 
@@ -105,7 +104,7 @@ const searchByName = (e) => {
   const searchedText = e.target.value.toLowerCase();
   const elementCollection = expensesList.children;
   for (let i of elementCollection) {
-    let elementText = i.firstChild.textContent.toLocaleLowerCase();
+    let elementText = i.firstChild.textContent.toLowerCase();
     if (elementText.includes(searchedText)) {
       i.style = i.style;
     } else {
@@ -114,6 +113,5 @@ const searchByName = (e) => {
   }
 };
 
-searchBox.addEventListener("keyup", searchByName);
-
+searchBox.addEventListener("input", searchByName);
 document.addEventListener("DOMContentLoaded", fetchAllExpenses);

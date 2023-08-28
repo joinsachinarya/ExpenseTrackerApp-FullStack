@@ -1,12 +1,9 @@
 const { Expense } = require("../models/index");
 
 exports.addExpense = (req, res, next) => {
-  const expenseDetails = {
-    name: req.body.name,
-    category: req.body.category,
-    price: req.body.price,
-    quantity: req.body.quantity,
-  };
+  const { name, category, price, quantity } = req.body;
+  const expenseDetails = { name, category, price, quantity };
+
   Expense.create(expenseDetails)
     .then((result) => {
       console.log("Expense added");
@@ -14,6 +11,9 @@ exports.addExpense = (req, res, next) => {
     })
     .catch((err) => {
       console.error(err);
+      res
+        .status(500)
+        .json({ error: "An error occured while adding the expense." });
     });
 };
 
@@ -25,7 +25,12 @@ exports.fetchLastExpense = (req, res, next) => {
       console.log("Fetched last expense");
       res.json(result);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ error: "An error occured while fetching the last expense." });
+    });
 };
 
 exports.fetchTotalExpense = (req, res, next) => {
@@ -44,5 +49,10 @@ exports.fetchTotalExpense = (req, res, next) => {
       console.log(totalPrice);
       res.json(totalExpenses);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .json({ error: "An error occured while fetching the total expense." });
+    });
 };
