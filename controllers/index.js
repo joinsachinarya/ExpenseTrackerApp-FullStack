@@ -1,7 +1,3 @@
-const fetchAllItems = (req, res, next) => {
+exports.fetchAllItems = (req, res, next) => {
   res.json({ result: "Hello from controller" });
-};
-
-module.exports = {
-  fetchAllItems: fetchAllItems,
 };
