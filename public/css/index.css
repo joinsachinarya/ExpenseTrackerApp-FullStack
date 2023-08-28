@@ -43,3 +43,14 @@ body{
     width: 25%;
     height: 25vh;
 }
+
+#expense-added-container{
+    width: 50%;
+    margin: 10rem auto;
+}
+#expense-added-container div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
