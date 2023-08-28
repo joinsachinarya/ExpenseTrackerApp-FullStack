@@ -1,21 +1,13 @@
 const form = document.getElementById("form");
-const fetchAllItems = () => {
-  axios
-    .get("http://localhost:3000/fetchAllItems")
-    .then((result) => {
-      // console.log(result);
-    })
-    .catch((err) => console.error(err));
-};
 
-const addItem = (e) => {
+const addExpense = (e) => {
   e.preventDefault();
-  const item = {
+  const Expense = {
     name: e.target.name.value,
     price: e.target.price.value,
   };
   axios
-    .post("http://localhost:3000/addItem", {
+    .post("http://localhost:3000/addExpense", {
       name: e.target.name.value,
       price: e.target.price.value,
     })
@@ -27,5 +19,4 @@ const addItem = (e) => {
     });
 };
 
-form.addEventListener("submit", addItem);
-document.addEventListener("DOMContentLoaded", fetchAllItems);
+form.addEventListener("submit", addExpense);

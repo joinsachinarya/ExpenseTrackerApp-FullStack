@@ -1,12 +1,20 @@
-exports.fetchAllItems = (req, res, next) => {
-  res.json({ result: "Hello from controller" });
-};
+const Expense = require("../models/index");
 
-exports.addItem = (req, res, next) => {
-  const itemDetails = {
+exports.addExpense = (req, res, next) => {
+  const expenseDetails = {
     name: req.body.name,
     price: req.body.price,
   };
   console.log(req.body);
-  res.json(itemDetails);
+  res.json(expenseDetails);
+};
+
+exports.fetchLastExpense = (req, res, next) => {
+  console.log("fetched last expense");
+  res.json("fetched last expense");
+};
+
+exports.fetchTotalExpense = (req, res, next) => {
+  console.log("fetched total expense");
+  res.json("fetched total expense");
 };
