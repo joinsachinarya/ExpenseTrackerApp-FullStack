@@ -16,7 +16,7 @@ body{
 }
 
 #footer{
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     width: 100%;
     padding: 0.5rem 0;
@@ -24,12 +24,22 @@ body{
 #footer a{
     text-decoration: none;
 }
-#main{
+
+#home-container{
+    display: flex;
+}
+
+#main-left{
     margin: 2rem;
 }
-#main form{
+#main-left form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#main-right{
+    margin: 10rem ;
+    width: 25%;
+    height: 25vh;
 }

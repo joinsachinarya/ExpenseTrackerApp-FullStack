@@ -19,56 +19,70 @@
       <a href="../html/expenses.html" class="text-white">All Expenses</a>
     </header>
 
-    <div id="main" class="card" style="width: 50%">
-      <form id="form" class="card-body">
-        <h5 class="card-title">ADD EXPENSE</h5>
-        <div class="">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            class=""
-            placeholder="Name"
-            required
-            autocomplete="off"
-          />
-        </div>
-        <div class="">
-          <label for="category">Category</label>
-          <select name="category" id="category" class="" required>
-            <option value="" disabled selected>Select category</option>
-            <option value="shopping">Shopping</option>
-            <option value="trip">Trip</option>
-            <option value="education">Education</option>
-            <option value="food">Food</option>
-            <option value="others">Others</option>
-          </select>
-        </div>
-        <div class="">
-          <label for="price">Price</label>
-          <input
-            type="number"
-            name="price"
-            id="price"
-            class=""
-            placeholder="Price"
-            required
-          />
-        </div>
-        <div class="">
-          <label for="quantity">Quantity</label>
-          <input
-            type="number"
-            name="quantity"
-            id="quantity"
-            class=""
-            placeholder="Quantity"
-            required
-          />
-        </div>
-        <button type="submit" class="">Submit</button>
-      </form>
+    <div id="home-container">
+      <div id="main-left" class="card" style="width: 40%">
+        <form id="form" class="card card-body">
+          <h5 class="card-title mb-3">ADD NEW EXPENSE</h5>
+          <div class="card p-3 m-3">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="form-control"
+                placeholder="Name"
+                required
+                autocomplete="off"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <select
+                name="category"
+                id="category"
+                class="form-select"
+                required
+              >
+                <option value="" disabled selected>Select category</option>
+                <option value="shopping">Shopping</option>
+                <option value="trip">Trip</option>
+                <option value="education">Education</option>
+                <option value="food">Food</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input
+                type="number"
+                name="price"
+                id="price"
+                class="form-control"
+                placeholder="Price"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input
+                type="number"
+                name="quantity"
+                id="quantity"
+                class="form-control"
+                placeholder="Quantity"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="main-right" class="card">
+        <h5 class="card-title m-4 text-center">Total Expenses:</h5>
+        <div id="total-expense-value" class="card-body text-center"></div>
+      </div>
     </div>
 
     <div id="footer" class="bg-primary text-center text-white">

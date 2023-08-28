@@ -1,4 +1,5 @@
 const form = document.getElementById("form");
+const totalExpenseValue = document.getElementById("total-expense-value");
 
 const addExpense = (e) => {
   e.preventDefault();
@@ -16,12 +17,15 @@ const addExpense = (e) => {
     .catch((err) => {
       console.error(err);
     });
+  window.location.pathname = "/public/html/expenseAdded.html";
 };
 
 const totalExpense = () => {
   axios
     .get("http://localhost:3000/fetchTotalExpense")
-    .then()
+    .then((res) => {
+      totalExpenseValue.textContent = `₹ ${res.data} / - Only`;
+    })
     .catch((err) => console.error(err));
 };
 
