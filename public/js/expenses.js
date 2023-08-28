@@ -1,4 +1,5 @@
 const expensesList = document.getElementById("expenses-list");
+const searchBox = document.getElementById("search-by-name-input-box");
 
 function createAndShowExpens(expense) {
   const li = document.createElement("li");
@@ -99,5 +100,20 @@ const editExpense = (id) => {
     })
     .catch((err) => console.error(err));
 };
+
+const searchByName = (e) => {
+  const searchedText = e.target.value.toLowerCase();
+  const elementCollection = expensesList.children;
+  for (let i of elementCollection) {
+    let elementText = i.firstChild.textContent.toLocaleLowerCase();
+    if (elementText.includes(searchedText)) {
+      i.style = i.style;
+    } else {
+      i.style.display = "none";
+    }
+  }
+};
+
+searchBox.addEventListener("keyup", searchByName);
 
 document.addEventListener("DOMContentLoaded", fetchAllExpenses);
